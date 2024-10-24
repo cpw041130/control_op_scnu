@@ -352,7 +352,7 @@ class Led:
         GPIO.wiringPiSetup()
         self.__gpio = IO2GPIO[led_io]
         GPIO.pinMode(self.__gpio, GPIO.OUTPUT)
-        GPIO.digitalWrite(self.__gpio, GPIO.HIGH)
+        GPIO.digitalWrite(self.__gpio, GPIO.LOW)
 
     def openled(self):
         """
@@ -360,7 +360,7 @@ class Led:
         :return:None
         """
         # 灯亮（更换led后未低电平亮灯--22.9.22）
-        GPIO.digitalWrite(self.__gpio, GPIO.LOW)
+        GPIO.digitalWrite(self.__gpio, GPIO.HIGH)
         # GPIO.output(self.__gpio, GPIO.HIGH)
 
     def closeled(self):
@@ -368,7 +368,7 @@ class Led:
         关闭led灯
         :return:None
         """
-        GPIO.digitalWrite(self.__gpio, GPIO.HIGH)
+        GPIO.digitalWrite(self.__gpio, GPIO.LOW)
         # GPIO.output(self.__gpio, GPIO.LOW)
 
 
