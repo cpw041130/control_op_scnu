@@ -13,17 +13,17 @@
   - [unique.py](#uniquepy)
   - [yuyin.py](#yuyinpy)
 # 0.control_op_scnu
-该库为华光人工智能教育创新团队 [机器人部] 开发  
+该库为华光人工智能教育创新团队 [研发部] 开发  
 适用于人工智能教育
 
 # 1.安装control库
 ## windows
 ```python
-pip install control_op_scnu
+pip install control-op-scnu
 ```
 ## linux
 ```python
-pip3 install control_op_scnu
+pip3 install control-op-scnu
 ```
 
 # 2.各个对应文件描

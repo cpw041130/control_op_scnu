@@ -966,4 +966,43 @@ class Screen:
 
         cap.release()
 
+class Light:
+    """
+    Introduction:
+        这是用来调用光敏传感器的类
+    Attributes:
+        data:光敏传感器的返回值，整数类型
+    """
+
+    # 光敏检测模块
+    def __init__(self, light_io: int):
+        """
+        初始化Light类
+        :param light_io:光敏传感器调用的IO口，整数类型
+        """
+        GPIO.wiringPiSetup()
+        self.__gpio = IO2GPIO[light_io]
+        GPIO.pinMode(self.__gpio, GPIO.INPUT)
+        # 光
+        self.data = 0
+
+    def get_return(self):
+        """
+        开始获取红外的返回值
+        :return: None
+        """
+        # 获取GPIO口的输入电平
+        if GPIO.digitalRead(self.__gpio) == 0:
+            # 低电平,返回false
+            time.sleep(0.01)
+            if GPIO.digitalRead(self.__gpio) == 0:
+                # 防抖设计
+                self.data = 0
+                # 输入为低电平
+        else:
+            self.data = 1
+            time.sleep(0.01)
+
+
+
 
